@@ -1,268 +1,259 @@
-                                       /*
-                                       * styles.css
-                                      */
+:root {
+    --pale-purple-pantone: hsl(262, 63%, 92%);
+    --medium-sea-green: hsl(152, 63%, 43%);
+    --lavender-blush: hsl(336, 35%, 92%);
+    --carolina-blue: hsl(204, 91%, 53%);
+    --columbia-blue: hsl(204, 92%, 90%);
+    --alice-blue-1: hsl(216, 38%, 95%);
+    --alice-blue-2: hsl(216, 75%, 97%);
+    --alice-blue-3: hsl(216, 38%, 95%);
+    --alice-blue-4: hsl(217, 33%, 92%);
+    --independence: hsl(219, 21%, 39%);
+    --deep-cerise: hsl(329, 63%, 52%);
+    --eerie-black: hsl(210, 11%, 15%);
+    --space-cadet: hsl(240, 22%, 25%);
+    --blue-jeans: hsl(204, 80%, 63%);
+    --slate-blue: hsl(262, 60%, 57%);
+    --beau-blue: hsl(208, 86%, 92%);
+    --honey-dew: hsl(152, 48%, 89%);
+    --mimi-pink: hsl(329, 63%, 90%);
+    --red-salsa: hsl(0, 79%, 63%);
+    --sapphire: hsl(211, 100%, 35%);
+    --manatee: hsl(219, 14%, 60%);
+    --white: hsl(0, 0%, 100%);
 
-                                       :root {
+    --gradient: linear-gradient(to top, var(--alice-blue-2), var(--alice-blue-3));
 
-                                           /*
-                                      * COLOURS
-                                      */
-
-                                           --pale-purple-pantone: hsl(262, 63%, 92%);
-                                           --medium-sea-green: hsl(152, 63%, 43%);
-                                           --lavender-blush: hsl(336, 35%, 92%);
-                                           --carolina-blue: hsl(204, 91%, 53%);
-                                           --columbia-blue: hsl(204, 92%, 90%);
-                                           --alice-blue-1: hsl(216, 38%, 95%);
-                                           --alice-blue-2: hsl(216, 75%, 97%);
-                                           --alice-blue-3: hsl(216, 38%, 95%);
-                                           --alice-blue-4: hsl(217, 33%, 92%);
-                                           --independence: hsl(219, 21%, 39%);
-                                           --deep-cerise: hsl(329, 63%, 52%);
-                                           --eerie-black: hsl(210, 11%, 15%);
-                                           --space-cadet: hsl(240, 22%, 25%);
-                                           --blue-jeans: hsl(204, 80%, 63%);
-                                           --slate-blue: hsl(262, 60%, 57%);
-                                           --beau-blue: hsl(208, 86%, 92%);
-                                           --honey-dew: hsl(152, 48%, 89%);
-                                           --mimi-pink: hsl(329, 63%, 90%);
-                                           --red-salsa: hsl(0, 79%, 63%);
-                                           --sapphire: hsl(211, 100%, 35%);
-                                           --manatee: hsl(219, 14%, 60%);
-                                           --white: hsl(0, 0%, 100%);
-
-                                           --gradient: linear-gradient(to top, var(--alice-blue-2), var(--alice-blue-3));
-
-                                           /*
+    /*
                                       * TYPOGRAPHY
                                       */
 
-                                           --ff-nunito: 'Nunito', sans-serif;
-                                           --ff-open-sans: 'Open Sans', sans-serif;
+    --ff-nunito: 'Nunito', sans-serif;
+    --ff-open-sans: 'Open Sans', sans-serif;
 
-                                           --fs-1: 2.125rem;
-                                           --fs-2: 1.875rem;
-                                           --fs-3: 1.5rem;
-                                           --fs-4: 1.375rem;
-                                           --fs-5: 1.125rem;
-                                           --fs-6: 0.875rem;
-                                           --fs-7: 0.625rem;
+    --fs-1: 2.125rem;
+    --fs-2: 1.875rem;
+    --fs-3: 1.5rem;
+    --fs-4: 1.375rem;
+    --fs-5: 1.125rem;
+    --fs-6: 0.875rem;
+    --fs-7: 0.625rem;
 
-                                           --fw-400: 400;
-                                           --fw-600: 600;
+    --fw-400: 400;
+    --fw-600: 600;
 
-                                           /*
+    /*
                                       * TRANSITION
                                       */
 
-                                           --transition: 0.5s ease;
+    --transition: 0.5s ease;
 
-                                           /*
+    /*
                                       * SPACING
                                       */
 
-                                           --section-padding: 50px;
+    --section-padding: 50px;
 
-                                           /*
+    /*
                                       * RADIUS
                                       */
 
-                                           --radius-10: 10px;
-                                           --radius-14: 14px;
-                                           --radius-18: 18px;
+    --radius-10: 10px;
+    --radius-14: 14px;
+    --radius-18: 18px;
 
-                                           /*
+    /*
                                       * SHADOWS
                                       */
 
-                                           --shadow-1: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
-                                           --shadow-2: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
+    --shadow-1: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
+    --shadow-2: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
 
-                                       }
+}
 
-                                       /*
+/*
                                  #RESET
                                  */
 
-                                       *,
-                                       *::before,
-                                       *::after {
-                                           margin: 0;
-                                           padding: 0;
-                                           box-sizing: border-box;
-                                       }
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-                                       li {
-                                           list-style: none;
-                                       }
+li {
+    list-style: none;
+}
 
-                                       a {
-                                           text-decoration: none;
-                                       }
+a {
+    text-decoration: none;
+}
 
-                                       a,
-                                       img,
-                                       span,
-                                       label,
-                                       input,
-                                       button,
-                                       ion-icon {
-                                           display: block;
-                                       }
+a,
+img,
+span,
+label,
+input,
+button,
+ion-icon {
+    display: block;
+}
 
-                                       button,
-                                       input {
-                                           background: none;
-                                           border: none;
-                                           font: inherit;
-                                       }
+button,
+input {
+    background: none;
+    border: none;
+    font: inherit;
+}
 
-                                       button {
-                                           cursor: pointer;
-                                       }
+button {
+    cursor: pointer;
+}
 
-                                       input {
-                                           width: 100%;
-                                       }
+input {
+    width: 100%;
+}
 
-                                       ion-icon {
-                                           pointer-events: none;
-                                       }
+ion-icon {
+    pointer-events: none;
+}
 
-                                       html {
-                                           font-family: var(--ff-open-sans);
-                                           color: var(--honey-dew);
-                                           font-size: 1rem;
-                                           line-height: 1.5;
-                                           scroll-behavior: smooth;
-                                       }
+html {
+    font-family: var(--ff-open-sans);
+    color: var(--honey-dew);
+    font-size: 1rem;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
 
-                                       body {
-                                           background: var(--space-cadet);
-                                           overflow-x: hidden;
-                                       }
+body {
+    background: var(--space-cadet);
+    overflow-x: hidden;
+}
 
-                                       ::-webkit-scrollbar {
-                                           width: 15px;
-                                           height: 10px;
-                                       }
+::-webkit-scrollbar {
+    width: 15px;
+    height: 10px;
+}
 
-                                       /*
+/*
                                  #REUSED STYLE
                                  */
 
-                                       .container {
-                                           padding-inline: 15px;
-                                       }
+.container {
+    padding-inline: 15px;
+}
 
-                                       button,
-                                       a {
-                                           transition: var (--transition);
-                                       }
+button,
+a {
+    transition: var (--transition);
+}
 
-                                       .btn {
-                                           position: relative;
-                                           background: var (--background, var(--eerie-black));
-                                           color: var (--color, var(--white));
-                                           min-width: var(--width, 40px);
-                                           min-height: var(--height, 40px);
-                                           padding: 5px;
-                                           display: grid;
-                                           place-items: center;
-                                           border-radius: var(--radius-14);
-                                           font-family: "Helvetica Neue";
-                                           font-size: var(--fs-6);
-                                           font-weight: var(--fw-400);
-                                           overflow: hidden;
-                                       }
+.btn {
+    position: relative;
+    background: var (--background, var(--eerie-black));
+    color: var (--color, var(--white));
+    min-width: var(--width, 40px);
+    min-height: var(--height, 40px);
+    padding: 5px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-14);
+    font-family: "Helvetica Neue";
+    font-size: var(--fs-6);
+    font-weight: var(--fw-400);
+    overflow: hidden;
+}
 
-                                       .btn ion-icon {
-                                           font-size: 22px;
-                                           --ionicon-stroke-width: 40px;
-                                       }
+.btn ion-icon {
+    font-size: 22px;
+    --ionicon-stroke-width: 40px;
+}
 
-                                       .btn ::before {
-                                           content: "";
-                                           position: absolute;
-                                           inset: 0;
-                                           background: linear-gradient(to right, hsl(262, 60%, 57%), transparent);
-                                           opacity: 0;
-                                           pointer-events: none;
-                                           transition: var(--transition)
-                                       }
+.btn ::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, hsl(262, 60%, 57%), transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition)
+}
 
-                                       .btn:is(:hover, :focus) {
-                                           box-shadow: var (--shadow-2)
-                                       }
+.btn:is(:hover, :focus) {
+    box-shadow: var (--shadow-2)
+}
 
-                                       .btn:is(:hover, :focus)::before {
-                                           opacity: 1;
-                                       }
+.btn:is(:hover, :focus)::before {
+    opacity: 1;
+}
 
-                                       .section {
-                                           padding-block: var (--section-padding);
-                                       }
+.section {
+    padding-block: var (--section-padding);
+}
 
-                                       .h1,
-                                       .h2,
-                                       .h3 {
-                                           color: var(--space-cadet);
-                                           font-family: var(--ff-nunito);
-                                           line-height: 1.4;
-                                       }
+.h1,
+.h2,
+.h3 {
+    color: var(--space-cadet);
+    font-family: var(--ff-nunito);
+    line-height: 1.4;
+}
 
-                                       .h1 {
-                                           font-size: var(--fs-1);
-                                           text-transform: uppercase;
-                                       }
+.h1 {
+    font-size: var(--fs-1);
+    text-transform: uppercase;
+}
 
-                                       .h2,
-                                       .h3 {
-                                           font-weight: var(--fw-400);
-                                       }
+.h2,
+.h3 {
+    font-weight: var(--fw-400);
+}
 
-                                       .h2 {
-                                           font-size: var(--fs-2);
-                                       }
+.h2 {
+    font-size: var(--fs-2);
+}
 
-                                       .h3 {
-                                           font-size: var(--fs-4);
-                                       }
+.h3 {
+    font-size: var(--fs-4);
+}
 
-                                       .w-100 {
-                                           width: 100%;
-                                       }
-
-
+.w-100 {
+    width: 100%;
+}
 
 
-                                       /*-----------------------------------*\
+
+
+/*-----------------------------------*\
                                    #HEADER
                                  \*-----------------------------------*/
 
-                                       .header-contact {
-                                           display: none;
-                                       }
+.header-contact {
+    display: none;
+}
 
-                                       .header {
-                                           background: var(--alice-blue-1);
-                                           position: fixed;
-                                           top: 0;
-                                           left: 0;
-                                           width: 100%;
-                                           transition: var(--transition);
-                                           z-index: 4;
-                                       }
+.header {
+    background: var(--alice-blue-1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: var(--transition);
+    z-index: 4;
+}
 
-                                       ::-webkit-scrollbar-track {
-                                           background: var(--white);
-                                       }
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
 
-                                       ::-webkit-scrollbar-thumb {
-                                           background: hsla(219, 14%, 60%, 0.3);
-                                           border: 2px solid var(--white);
-                                       }
+::-webkit-scrollbar-thumb {
+    background: hsla(219, 14%, 60%, 0.3);
+    border: 2px solid var(--white);
+}
 
-                                       ::-webkit-scrollbar-thumb:hover {
-                                           background: hsla(219, 14%, 60%, 0.5);
-                                       }
+::-webkit-scrollbar-thumb:hover {
+    background: hsla(219, 14%, 60%, 0.5);
+}
