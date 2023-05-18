@@ -255,7 +255,7 @@ a {
 /*-----------------------------------*\      #HEADER  \*-----------------------------------*/
 
 .logo img {
-    width: 20%;
+    width: 200px;
     height: auto;
   }
   
@@ -271,6 +271,10 @@ a {
     width: 100%;
     transition: var(--transition);
     z-index: 4;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .header.active {
@@ -400,13 +404,16 @@ a {
     background: white;
     border: 1px solid var(--white);
     border-radius: var(--radius-10);
-    padding: 10px;
-    box-shadow: var(--shadow-1);
+    /* padding: 10px; */
+    /* box-shadow: var(--shadow-1); */
+
 }
 .hero-banner img{
-    width: 100%;
+    /* width: 100%; */
     height:100%;
     object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 13px 13px 19px hsla(240, 14%, 69%, 0.2);
 }
 
 .hero-form {
