@@ -141,8 +141,7 @@ html {
 }
 
 body {
-    background: var(--alice-blue-1);
-    overflow-x: hidden;
+    background: whitesmoke;
 }
 
 ::-webkit-scrollbar {
@@ -255,13 +254,17 @@ a {
 
 /*-----------------------------------*\      #HEADER  \*-----------------------------------*/
 
-
-.header-contact {
+.logo img {
+    width: 20%;
+    height: auto;
+  }
+  
+  .header-contact {
     display: none;
 }
 
 .header {
-    background: var(--alice-blue-1);
+    background: white;
     position: fixed;
     top: 0;
     left: 0;
@@ -326,7 +329,7 @@ a {
 }
 
 .navbar {
-    background: var(--alice-blue-1);
+    background: white;
     position: fixed;
     top: 70px;
     bottom: 0;
@@ -375,7 +378,6 @@ a {
     pointer-events: all;
 }
 
-
 /*-------------------*\  #HERO  \*--------------------*/
 
 .hero {
@@ -395,7 +397,7 @@ a {
 
 .hero-banner {
     display: inline-flex;
-    background: var(--gradient);
+    background: white;
     border: 1px solid var(--white);
     border-radius: var(--radius-10);
     padding: 10px;
@@ -408,7 +410,7 @@ a {
 }
 
 .hero-form {
-    background: var(--gradient);
+    background: white;
     border: 1px solid var(--white);
     box-shadow: var(--shadow-1);
     border-radius: var(--radius-18);
@@ -454,7 +456,10 @@ a {
 
 
 /*---------------*\  #FEATURED CAR  \*--------------*/
-
+body {
+    background-color: white;
+  }
+  
 .featured-car .title-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -496,7 +501,7 @@ a {
 }
 
 .featured-car-card {
-    background: var(--gradient);
+    background: white;
     border: 1px solid var(--white);
     border-radius: var(--radius-18);
     padding: 10px;
@@ -618,10 +623,6 @@ a {
     --background: var(--lavender-blush);
     --color: var(--red-salsa);
 }
-
-
-
-
 
 /*-------------------*\  #GET START  \*--------------------*/
 
