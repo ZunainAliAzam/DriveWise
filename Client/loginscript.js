@@ -25,3 +25,15 @@ pwShowHide.forEach(eyeIcon=> {
                 forms.classList.toggle("show-signup");
             })
     })
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Prevent form submission
+        
+        // Perform login authentication
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Navigate to mainIndex.html if login is successful
+       
+            window.location.href = "mainIndex.html";
+        
+    });

@@ -380,7 +380,7 @@ a {
 
 .hero .hero-form {
     align-items: center;
-    margin:auto;
+    margin: auto;
     background: white;
     border: 1px solid var(--white);
     box-shadow: var(--shadow-1);
@@ -419,8 +419,8 @@ a {
 }
 
 .hero-form .btn {
-    --width: calc(100% - 40px);
-    --height: 50px;
+    width: calc(100% - 40px);
+    height: 50px;
     margin: 20px;
     text-transform: uppercase;
 }
