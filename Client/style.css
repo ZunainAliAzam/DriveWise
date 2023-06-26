@@ -12,7 +12,7 @@
     --pale-purple-pantone: hsl(262, 63%, 92%);
     --medium-sea-green: hsl(152, 63%, 43%);
     --lavender-blush: hsl(336, 35%, 92%);
-    --carolina-blue: hsl(204, 91%, 53%);
+    --eerie-black: hsl(204, 91%, 53%);
     --columbia-blue: hsl(204, 92%, 90%);
     --alice-blue-1: hsl(216, 38%, 95%);
     --alice-blue-2: hsl(216, 75%, 97%);
@@ -175,7 +175,7 @@ a {
 
 .btn {
     position: relative;
-    background: var(--background, var(--carolina-blue));
+    background: var(--background, var(--eerie-black));
     color: var(--color, var(--white));
     min-width: var(--width, 40px);
     min-height: var(--height, 40px);
@@ -320,12 +320,12 @@ a {
 }
 
 .nav-toggle-btn:is(:hover, :focus) span {
-    background: var(--carolina-blue);
+    background: var(--eerie-black);
 }
 
 .nav-toggle-btn.active span {
     transform: scaleX(1);
-    background: var(--carolina-blue);
+    background: var(--eerie-black);
 }
 
 .navbar {
@@ -358,7 +358,7 @@ a {
 }
 
 .navbar-link:is(:hover, :focus) {
-    color: var(--carolina-blue);
+    color: var(--eerie-black);
 }
 
 .overlay {
@@ -448,7 +448,7 @@ body {
 }
 
 .featured-car-link:is(:hover, :focus) ion-icon {
-    color: var(--carolina-blue);
+    color: var(--eerie-black);
 }
 
 .featured-car-list {
@@ -502,7 +502,7 @@ body {
 }
 
 .featured-car-card .card-title>a:is(:hover, :focus) {
-    color: var(--carolina-blue);
+    color: var(--eerie-black);
 }
 
 .featured-car-card .year {
@@ -531,7 +531,7 @@ body {
 
 .featured-car-card .card-list-item ion-icon {
     font-size: 20px;
-    color: var(--carolina-blue);
+    color: var(--eerie-black);
     --ionicon-stroke-width: 38px;
 }
 
@@ -565,8 +565,8 @@ body {
 }
 
 .featured-car-card .fav-btn {
-    --background: var(--beau-blue);
-    --color: var(--blue-jeans);
+    background: var(--eerie-black);
+    /* --color: var(--eerie-black); */
     --height: 36px;
     --width: 36px;
     --shadow-2: none;
@@ -585,16 +585,17 @@ body {
 /*---------------*\  #FOOTER \*----------------*/
 
 .footer {
-    background-color:white;
+    background-color:var(--eerie-black);
 	max-width: 100%;
 	margin: 1rem auto;
+    margin-bottom: 0;
 	overflow: auto;
     padding:20px 0 20px 100px;
 }
 
 .footer,
 .footer a {
-	color: black;
+	color: white;
 	font-size: 0.9rem;
 }
 
@@ -706,7 +707,7 @@ body {
     }
 
     .header-contact .contact-link:is(:hover, :focus) {
-        color: var(--carolina-blue);
+        color: var(--eerie-black);
     }
 
     .header-contact .contact-time {
