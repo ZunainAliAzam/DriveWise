@@ -381,7 +381,10 @@ a {
 /*-------------------*\  #HERO  \*--------------------*/
 
 .hero {
-    padding-top: 120px;
+    /* padding-top: 120px; */
+    margin: 120px 30px 0 30px;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .hero-title {
@@ -729,9 +732,21 @@ body {
         grid-template-columns: 1fr 1fr 1fr 0.8fr;
     }
 
+    .input-wrapper {
+        /* margin-right: 15px; */
+
+
+    }
+    .input-wrapper input {
+        width: 250px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+    
+    }
+
     .input-wrapper:not(:last-of-type) {
-        border-bottom: none;
-        border-right: 1px solid hsla(0, 0%, 0%, 0.08);
+        /* border-right: 1px solid hsla(0, 0%, 0%, 0.08); */
     }
 
     .input-label {
@@ -871,7 +886,8 @@ body {
     /*** HERO ***/
 
     .hero {
-        min-height: 100vh;
+        /* min-height: 100vh; */
+        
     }
 
     .hero-banner {
@@ -881,13 +897,14 @@ body {
     }
 
     .hero-form {
-        max-width: 900px;
+        /* max-width: 900px; */
     }
 
     .hero-form .btn {
         --width: calc(100% - 40px);
         --height: 50px;
-        margin: 20px;
+        margin: 25px 20px;
+        padding: 15px 20px;
         text-transform: uppercase;
     }
 

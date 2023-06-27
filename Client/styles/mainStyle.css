@@ -210,6 +210,8 @@ a {
 
 .section {
     padding-block: var(--section-padding);
+    
+    
 }
 
 .h1,
@@ -376,6 +378,7 @@ a {
 .hero .container {
     margin-top: -300px;
     background-color: rgb(255, 255, 255);
+    
 }
 
 .hero .hero-form {
@@ -388,12 +391,14 @@ a {
     font-family: var(--ff-nunito);
 }
 
-.input-wrapper {
-    padding: 15px 20px;
+.input-wrapper input {
+    /* padding: 15px 20px; */
+    border: 2px solid black;
+
 }
 
 .input-wrapper:not(:last-of-type) {
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.08);
+    /* border-bottom: 1px solid hsla(0, 0%, 0%, 0.08); */
 }
 
 .input-label {
@@ -404,24 +409,25 @@ a {
 
 .input-field {
     color: var(--space-cadet);
-    outline: 2px solid transparent;
-    outline-offset: 5px;
-    border-radius: 4px;
+    /* outline: 2px solid transparent; */
+    /* outline-offset: 5px;
+    border-radius: 4px; */
     transition: var(--transition);
 }
 
 .input-field:focus {
-    outline-color: var(--eerie-black);
+    /* outline-color: var(--eerie-black); */
 }
 
 .input-field::placeholder {
-    color: var(--independence);
+    /* color: var(--independence); */
 }
 
 .hero-form .btn {
-    /* width: calc(100% - 40px); */
+    width: calc(100% - 40px);
     height: 50px;
-    margin: 20px;
+    
+    /* margin: 20px; */
     text-transform: uppercase;
 }
 
@@ -764,10 +770,11 @@ body {
 
     .hero {
         position: relative;
-        min-height: 85vh;
+        /* min-height: 85vh; */
+        
         display: flex;
         align-items: center;
-        z-index: 1;
+        /* z-index: 1; */
     }
 
     .hero-form {
@@ -777,7 +784,7 @@ body {
 
     .input-wrapper:not(:last-of-type) {
         border-bottom: none;
-        border-right: 1px solid hsla(0, 0%, 0%, 0.08);
+        /* border-right: 1px solid hsla(0, 0%, 0%, 0.08); */
     }
 
     .input-label {
@@ -788,13 +795,13 @@ body {
 
     .hero-banner {
         display: block;
-        background: url("../images/hero-banner.jpg") no-repeat;
+        /* background: url("../images/hero-banner.jpg") no-repeat; */
         background-size: cover;
         background-position: left;
         position: absolute;
         top: 100px;
         bottom: 50px;
-        left: 65%;
+        /* left: 65%; */
         width: 500px;
         border-radius: 30px;
         z-index: -1;
@@ -809,6 +816,17 @@ body {
     .featured-car-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+
+
+    /**
+   * GET START
+   */
+
+    .get-start-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
 
 
     /**
@@ -863,6 +881,8 @@ body {
    */
 
     .hero .container {
+    /* background-color: red; */
+
         width: 100%;
     }
 
@@ -964,9 +984,9 @@ body {
    * HERO
    */
 
-    /* .hero {
-        min-height: 100vh;
-    } */
+    .hero {
+        /* min-height: 100vh; */
+    }
 
     .hero-banner {
         left: auto;
@@ -975,13 +995,14 @@ body {
     }
 
     .hero-form {
-        max-width: 900px;
+        /* max-width: 900px; */
     }
 
     .hero-form .btn {
         --width: calc(100% - 40px);
         --height: 50px;
         margin: 20px;
+        
         text-transform: uppercase;
     }
 
