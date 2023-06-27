@@ -718,7 +718,7 @@ body {
 
     .hero {
         position: relative;
-        min-height: 85vh;
+        /* min-height: 85vh; */
         display: flex;
         align-items: center;
         z-index: 1;
