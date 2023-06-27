@@ -419,7 +419,7 @@ a {
 }
 
 .hero-form .btn {
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
     height: 50px;
     margin: 20px;
     text-transform: uppercase;
@@ -811,17 +811,6 @@ body {
     }
 
 
-
-    /**
-   * GET START
-   */
-
-    .get-start-list {
-        grid-template-columns: 1fr 1fr;
-    }
-
-
-
     /**
    * FOOTER
    */
@@ -975,9 +964,9 @@ body {
    * HERO
    */
 
-    .hero {
+    /* .hero {
         min-height: 100vh;
-    }
+    } */
 
     .hero-banner {
         left: auto;
