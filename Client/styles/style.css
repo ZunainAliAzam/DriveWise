@@ -388,7 +388,7 @@ a {
 }
 
 .hero-title {
-    max-width: 20ch;
+    max-width: 25ch;
     margin-bottom: 15px;
 }
 
@@ -410,8 +410,9 @@ a {
 .hero-banner img{
     /* width: 1px; */
     height:100%;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 14px;
+    margin: auto;
     box-shadow: 13px 13px 19px hsla(240, 14%, 69%, 0.2);
 }
 
@@ -721,7 +722,7 @@ body {
 
     .hero {
         position: relative;
-        /* min-height: 85vh; */
+        min-height: 85vh;
         display: flex;
         align-items: center;
         z-index: 1;
@@ -757,16 +758,16 @@ body {
 
     .hero-banner {
         display: block;
-        background: url("../images/hero-banner.jpg") no-repeat;
-        background-size: cover;
-        background-position: left;
+        /* background: url("../images/hero-banner.jpg") no-repeat; */
+        /* background-size: cover; */
+        /* background-position: left; */
         position: absolute;
-        top: 100px;
+        top: 50px;
         bottom: 50px;
-        left: 65%;
+        left: 61%;
         width: 500px;
         border-radius: 30px;
-        z-index: -1;
+        /* z-index: -1; */
     }
 
     /* FEATURED CAR */
@@ -886,27 +887,27 @@ body {
     /*** HERO ***/
 
     .hero {
-        /* min-height: 100vh; */
+        min-height: 70vh;
         
     }
 
-    .hero-banner {
+    /* .hero-banner {
         left: auto;
         right: 50px;
         width: 630px;
-    }
+    } */
 
     .hero-form {
         /* max-width: 900px; */
     }
 
-    .hero-form .btn {
+    /* .hero-form .btn {
         --width: calc(100% - 40px);
         --height: 50px;
         margin: 25px 20px;
         padding: 15px 20px;
         text-transform: uppercase;
-    }
+    } */
 
     /*** FEATURED CAR ***/
 
