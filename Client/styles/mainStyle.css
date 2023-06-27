@@ -12,7 +12,7 @@
     --pale-purple-pantone: hsl(262, 63%, 92%);
     --medium-sea-green: hsl(152, 63%, 43%);
     --lavender-blush: hsl(336, 35%, 92%);
-    --carolina-blue: hsl(204, 91%, 53%);
+    --eerie-black: hsl(204, 91%, 53%);
     --columbia-blue: hsl(204, 92%, 90%);
     --alice-blue-1: hsl(216, 38%, 95%);
     --alice-blue-2: hsl(216, 75%, 97%);
@@ -137,7 +137,7 @@ html {
 }
 
 body {
-    background: white;
+    background: whitesmoke;
 }
 
 ::-webkit-scrollbar {
@@ -157,6 +157,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: hsla(219, 14%, 60%, 0.5);
 }
+
+
+
+
 
 /*--------------*\   #REUSED STYLE  \*------------------*/
 
@@ -210,8 +214,6 @@ a {
 
 .section {
     padding-block: var(--section-padding);
-    
-    
 }
 
 .h1,
@@ -244,6 +246,8 @@ a {
     width: 100%;
 }
 
+
+
 /*-----------------------------------*\      #HEADER  \*-----------------------------------*/
 
 .logo img {
@@ -258,7 +262,8 @@ a {
 .header {
     background: white;
     position: fixed;
-    border-radius: 10px;
+    top: 0;
+    left: 0;
     width: 100%;
     transition: var(--transition);
     z-index: 4;
@@ -375,71 +380,47 @@ a {
 
 /*-------------------*\  #HERO  \*--------------------*/
 
-.hero .container {
-    margin-top: -300px;
-    background-color: rgb(255, 255, 255);
-    
+.hero {
+    /* padding-top: 120px; */
+    margin: 120px 30px 0 30px;
+    border-radius: 8px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-.hero .hero-form {
-    align-items: center;
-    margin: auto;
+.hero-title {
+    max-width: 25ch;
+    margin-bottom: 15px;
+}
+
+.hero-text {
+    color: var(--independence);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-banner {
+    display: inline-flex;
     background: white;
     border: 1px solid var(--white);
-    box-shadow: var(--shadow-1);
-    border-radius: var(--radius-18);
-    font-family: var(--ff-nunito);
-}
-
-.input-wrapper input {
-    /* padding: 15px 20px; */
-    border: 2px solid black;
+    border-radius: var(--radius-10);
+    /* padding: 10px; */
+    /* box-shadow: var(--shadow-1); */
 
 }
-
-.input-wrapper:not(:last-of-type) {
-    /* border-bottom: 1px solid hsla(0, 0%, 0%, 0.08); */
+.hero-banner img{
+    /* width: 1px; */
+    height:100%;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: auto;
+    box-shadow: 13px 13px 19px hsla(240, 14%, 69%, 0.2);
 }
-
-.input-label {
-    color: var(--manatee);
-    font-size: var(--fs-6);
-    margin-bottom: 10px;
-}
-
-.input-field {
-    color: var(--space-cadet);
-    /* outline: 2px solid transparent; */
-    /* outline-offset: 5px;
-    border-radius: 4px; */
-    transition: var(--transition);
-}
-
-.input-field:focus {
-    /* outline-color: var(--eerie-black); */
-}
-
-.input-field::placeholder {
-    /* color: var(--independence); */
-}
-
-.hero-form .btn {
-    width: calc(100% - 40px);
-    height: 50px;
-    
-    /* margin: 20px; */
-    text-transform: uppercase;
-}
-
 
 /*---------------*\  #FEATURED CAR  \*--------------*/
 body {
     background-color: white;
   }
-.featured-car .container{
-    background-color: white;
-    margin-top:-450px;
-}
+  
 .featured-car .title-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -588,7 +569,7 @@ body {
 }
 
 .featured-car-card .fav-btn {
-    --background: var(--eerie-black);
+    background: var(--eerie-black);
     /* --color: var(--eerie-black); */
     --height: 36px;
     --width: 36px;
@@ -603,6 +584,7 @@ body {
     --background: var(--lavender-blush);
     --color: var(--red-salsa);
 }
+/* REVIEWS */
 
 /*---------------*\  #FOOTER \*----------------*/
 
@@ -663,16 +645,13 @@ body {
     }
 
 }
-
 /**
  * responsive for large than 580px screen
  */
 
 @media (min-width: 580px) {
 
-    /**
-   * REUSED STYLE
-   */
+    /* REUSED STYLE */
 
     .container {
         max-width: 540px;
@@ -681,9 +660,7 @@ body {
 
 
 
-    /**
-   * HEADER
-   */
+    /* HEADER */
 
     .header-actions .btn span {
         display: block;
@@ -697,45 +674,25 @@ body {
 
 }
 
-
-
-
-
-/**
- * responsive for large than 768px screen
- */
+/* responsive for large than 768px screen */
 
 @media (min-width: 768px) {
 
-    /**
-   * CUSTOM PROPERTY
-   */
+    /* CUSTOM PROPERTY */
 
     :root {
 
-        /**
-     * typography
-     */
+    /* typography */
 
         --fs-1: 2.625rem;
 
     }
-
-
-
-    /**
-   * REUSED STYLE
-   */
+    /* REUSED STYLE*/
 
     .container {
         max-width: 720px;
     }
-
-
-
-    /**
-   * HEADER
-   */
+    /* HEADER */
 
     .header-actions {
         gap: 30px;
@@ -761,20 +718,14 @@ body {
         color: var(--independence);
         font-size: var(--fs-7);
     }
-
-
-
-    /**
-   * HERO
-   */
+    /* HERO */
 
     .hero {
         position: relative;
-        /* min-height: 85vh; */
-        
+        min-height: 55vh;
         display: flex;
         align-items: center;
-        /* z-index: 1; */
+        z-index: 1;
     }
 
     .hero-form {
@@ -782,8 +733,20 @@ body {
         grid-template-columns: 1fr 1fr 1fr 0.8fr;
     }
 
+    .input-wrapper {
+        /* margin-right: 15px; */
+
+
+    }
+    .input-wrapper input {
+        width: 250px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+    
+    }
+
     .input-wrapper:not(:last-of-type) {
-        border-bottom: none;
         /* border-right: 1px solid hsla(0, 0%, 0%, 0.08); */
     }
 
@@ -796,42 +759,25 @@ body {
     .hero-banner {
         display: block;
         /* background: url("../images/hero-banner.jpg") no-repeat; */
-        background-size: cover;
-        background-position: left;
+        /* background-size: cover; */
+        /* background-position: left; */
         position: absolute;
-        top: 100px;
+        top: 50px;
         bottom: 50px;
-        /* left: 65%; */
+        left: 61%;
         width: 500px;
         border-radius: 30px;
-        z-index: -1;
+        /* z-index: -1; */
     }
 
-
-
-    /**
-   * FEATURED CAR
-   */
+    /* FEATURED CAR */
 
     .featured-car-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
 
-
-    /**
-   * GET START
-   */
-
-    .get-start-list {
-        grid-template-columns: 1fr 1fr;
-    }
-
-
-
-    /**
-   * FOOTER
-   */
+    /*** FOOTER ***/
 
     .footer-brand {
         width: 100%;
@@ -856,13 +802,7 @@ body {
 
 }
 
-
-
-
-
-/**
- * responsive for large than 992px screen
- */
+/* responsive for large than 992px screen */
 
 @media (min-width: 992px) {
 
@@ -873,24 +813,12 @@ body {
     .container {
         max-width: 960px;
     }
-
-
-
-    /**
-   * HERO
-   */
+    /*** HERO ***/
 
     .hero .container {
-    /* background-color: red; */
-
         width: 100%;
     }
-
-
-
-    /**
-   * BLOG
-   */
+     /*** BLOG ***/
 
     .blog .has-scrollbar {
         padding-bottom: 50px;
@@ -900,11 +828,7 @@ body {
         max-width: 450px;
     }
 
-
-
-    /**
-   * FOOTER
-   */
+    /*** FOOTER ***/
 
     .footer-list:not(:last-of-type) {
         width: 25%;
@@ -915,14 +839,7 @@ body {
     }
 
 }
-
-
-
-
-
-/**
- * responsive for large than 1200px screen
- */
+/*** responsive for large than 1200px screen ***/
 
 @media (min-width: 1200px) {
 
@@ -932,31 +849,20 @@ body {
 
     :root {
 
-        /**
-     * typography
-     */
+    /*** typography ***/
 
         --fs-1: 2.875rem;
         --fs-2: 2rem;
 
     }
 
-
-
-    /**
-   * REUSED STYLE
-   */
+    /*** REUSED STYLE ***/
 
     .container {
         max-width: 1170px;
     }
 
-
-
-
-    /**
-   * HEADER
-   */
+    /*** HEADER ***/
 
     .overlay,
     .nav-toggle-btn {
@@ -978,21 +884,18 @@ body {
         gap: 50px;
     }
 
-
-
-    /**
-   * HERO
-   */
+    /*** HERO ***/
 
     .hero {
-        /* min-height: 100vh; */
+        min-height: 30vh;
+        
     }
 
-    .hero-banner {
+    /* .hero-banner {
         left: auto;
         right: 50px;
         width: 630px;
-    }
+    } */
 
     .hero-form {
         /* max-width: 900px; */
@@ -1001,45 +904,18 @@ body {
     .hero-form .btn {
         --width: calc(100% - 40px);
         --height: 50px;
-        margin: 20px;
-        
+        margin: 25px 20px;
+        padding: 15px 20px;
         text-transform: uppercase;
     }
 
-
-
-    /**
-   * FEATURED CAR 
-   */
+    /*** FEATURED CAR ***/
 
     .featured-car-list {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-
-
-    /**
-   * GET START
-   */
-
-    .get-start-list {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-
-
-    /**
-   * BLOG
-   */
-
-    .blog .has-scrollbar>li {
-        max-width: 340px;
-        scroll-snap-align: center;
-    }
-
-    /**
-   * FOOTER
-   */
+    /*** FOOTER ***/
 
     .footer-brand {
         width: 33.33%;
