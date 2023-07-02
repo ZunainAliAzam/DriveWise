@@ -32,8 +32,35 @@ pwShowHide.forEach(eyeIcon=> {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
 
+        const url = 'http://zunainazam1865.pythonanywhere.com/login/';
+        const data = {
+        email: email,
+        password: password
+        };
+
+        fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+                })
+
+        .then(response =>{
+                response.json(),
+                window.location.href = "mainIndex.html";
+        })
+        .then(responseData => {
+        console.log(responseData);
+        // Do something with the response data
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        // Handle any errors that occurred during the request
+        });
         // Navigate to mainIndex.html if login is successful
        
-            window.location.href = "mainIndex.html";
+           
         
     });
