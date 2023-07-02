@@ -20,16 +20,17 @@
         <div class="form login">
             <div class="form-content">
                 <header>Login</header>
-                <form action="mainIndex.html" method="GET">
+                <form action="" method="GET">
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input">
+                        <input id="email" type="email" placeholder="Email" class="input">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password">
+                        <input id="password" type="password" placeholder="Password" class="password">
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
+                    <div id="errorMessage"></div>
                     <!-- <div class="form-link">
                         <a href="#" class="forgot-pass">Forgot password?</a>
                     </div> -->
@@ -66,33 +67,31 @@
                 <form action="#">
 
                     <div class="field input-field">
-                        <input type="" placeholder="Your Username" class="username">
-                    </div>
-
-                    <div class="field input-field">
-                        <input type="" placeholder="Your Name" class="name">
+                        <input id="name" type="text" placeholder="Your Name" class="name">
                     </div>
                     
                     <div class="field input-field">
-                        <input type="email" placeholder="Email" class="email">
+                        <input id="signupEmail" type="email" placeholder="Email" class="email">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Create password" class="password">
+                        <input  id="signupPassword" type="password" placeholder="Create password" class="password">
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
                     <div class="field input-field">
-                        <input type="" placeholder="Your Phone Number" class="ph-number">
+                        <input id="phone_number" type="number" placeholder="Your Phone Number" class="ph-number">
                     </div>
 
                     <div class="field input-field">
-                        <input type="" placeholder="Your Address" class="address">
+                        <input id="address" type="text" placeholder="Your Address" class="address">
                     </div>
 
                     <div class="field button-field">
                         <button>Signup</button>
-                    </div>
+                    <div id="errorMessage"></div>
+
+                    <div id="successMessage"></div>
                 </form>
 
                 <div class="form-link">
