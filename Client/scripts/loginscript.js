@@ -147,7 +147,7 @@ document.querySelector('.form.signup form').addEventListener("submit", function 
                 
                 //redirect to the login page
                 setTimeout(()=> {
-                        window.location.href = "login.html"; // Redirect to mainIndex.html if signup is successful
+                        window.location= "loginForm"; // Redirect to mainIndex.html if signup is successful
                         },10000);
                 }
         } else {

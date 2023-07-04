@@ -21,6 +21,78 @@
 // // Event listener for the close button click
 // closeButton.addEventListener("click", closeModal);
 
+window.addEventListener("load", function () {
+    loadCars();
+});
+
+function loadCars() {
+  const url = 'http://zunainazam1865.pythonanywhere.com/getcar/';
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Process the car data and display it on the webpage
+      displayCars(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle any errors that occurred during the request
+    });
+}
+
+function displayCars(cars) {
+    const carListElement = document.querySelector('.featured-car-list');
+  
+    cars.forEach(car => {
+      const carItemElement = document.createElement('li');
+      carItemElement.innerHTML = `
+        <div class="featured-car-card">
+          <figure class="card-banner">
+            <img src="http://zunainazam1865.pythonanywhere.com${car.car_pic}" alt="${car.car_name}" loading="lazy" width="440" height="300" class="w-100">
+          </figure>
+          <div class="card-content">
+            <div class="card-title-wrapper">
+              <h3 class="h3 card-title">
+                <a>${car.car_name}</a>
+              </h3>
+              <data class="year" value="${car.car_year}">${car.car_year}</data>
+            </div>
+            <ul class="card-list">
+              <li class="card-list-item">
+                <ion-icon name="people-outline"></ion-icon>
+                <span class="card-item-text">${car.no_of_person} People</span>
+              </li>
+              <li class="card-list-item">
+                <ion-icon name="flash-outline"></ion-icon>
+                <span class="card-item-text">${car.car_type}</span>
+              </li>
+              <li class="card-list-item">
+                <ion-icon name="speedometer-outline"></ion-icon>
+                <span class="card-item-text">${car.car_mileage}</span>
+              </li>
+              <li class="card-list-item">
+                <ion-icon name="hardware-chip-outline"></ion-icon>
+                <span class="card-item-text">${car.car_mode}</span>
+              </li>
+            </ul>
+            <div class="card-price-wrapper">
+              <p class="card-price">
+                <strong>Rs ${car.price}</strong> / month
+              </p>
+              <button class="btn fav-btn" aria-label="Add to favourite list">
+                <ion-icon name="heart-outline"></ion-icon>
+              </button>
+              <button class="btn">Rent now</button>
+            </div>
+          </div>
+        </div>
+      `;
+  
+      carListElement.appendChild(carItemElement);
+    });
+  }
+  
+
 // new code
 const modalButton = document.querySelector(".modalButton");
 const modalOverlay = document.querySelector(".modaloverlay");
