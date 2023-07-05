@@ -290,9 +290,9 @@ a {
     gap: 20px;
 }
 
-.header-actions .btn span {
+/* .header-actions .btn span {
     display: none;
-}
+} */
 
 .user-btn {
     --color: var(--independence);
@@ -300,7 +300,6 @@ a {
     --shadow-2: var(--shadow-1);
     box-shadow: var(--shadow-1);
 }
-
 .nav-toggle-btn span {
     background: var(--independence);
     width: 22px;
@@ -359,6 +358,107 @@ a {
 
 .navbar-link:is(:hover, :focus) {
     color: var(--eerie-black);
+}
+/* .sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right:10%;
+    width:320px;
+    max-height: 0px;
+    overflow: hidden;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background:#251d63f8;
+    padding: 20px;
+    margin:10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+.sub-menu-link p{
+    width:100%;
+    margin-right: 15px;
+    color:white
+}
+.sub-menu-link img{
+    background:#e5e5e5;
+    border-radius: 50%;
+    padding:8px;
+    margin-right:15px;
+}
+.sub-menu-link p:hover{
+    font-weight:600 ;
+} */
+
+.user-profile {
+  position: relative;
+}
+
+.user-profile .user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-profile .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: var(--eerie-black);
+  padding: 20px;
+  border-radius: 5px;
+  display: none;
+}
+.user-profile .dropdown-menu hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* .user-profile:hover .dropdown-menu {
+  display: block;
+} */
+.user-profile .dropdown-menu.active {
+    display: block;
+  }  
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin-bottom: 8px;
+}
+
+.dropdown-link p {
+  width: 100%;
+  color: white;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-align:left;
+}
+
+.dropdown-link img {
+    height:36px;
+    width:36px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 5px;
+}
+
+.dropdown-link p:hover {
+  font-weight: 600;
 }
 
 .overlay {
