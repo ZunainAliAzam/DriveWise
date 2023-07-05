@@ -43,20 +43,28 @@
                 <ion-icon name="car-outline"></ion-icon>
                 <span>Explore cars</span>
             </a>
-            <a href="#" class="btn user-btn" aria-label="Profile">
-                <ion-icon name="person-outline"></ion-icon>
-            </a>
-            <!-- <li> -->
-                <!-- <a href="login-signup/login.html" class="btn" id="login-button">
-                    <span>
-                        Login
-                    </span></a> -->
-            <!-- </li> -->
-            <button class="nav-toggle-btn" aria-label="Toggle Menu">
-                <span class="one"></span>
-                <span class="two"></span>
-                <span class="three"></span>
-            </button>
+                <div class="user-profile">
+                  <div class="user-info" onclick="toggleDropdown()">
+                    <ion-icon name="person-outline"></ion-icon>
+                  </div>
+                  <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="dropdown-link">
+                        <img id="profile" src="/images/profile.png" alt="signout">
+                        <p>Hi Zunain</p>
+                      </a>
+                    <hr>
+                    <a href="#" class="dropdown-link">
+                      <img src="/images/signout.png" alt="signout">
+                      <p>Sign Out</p>
+                    </a>
+                    <a href="#" class="dropdown-link">
+                      <img src="/images/deletemyaccount.png" alt="deletemyaccount">
+                      <p>Delete my account</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
         </div>
     </header>
     <main>
@@ -66,18 +74,6 @@
 
             <section class="section hero" id="home">
                 <div class="container">
-
-                    <!-- <div class="hero-content">
-                        <h2 class="h1 hero-title">Choice of Wise People</h2> 
-                        <p class="hero-text">
-                            Live in Karachi, Lahore and Islamabad!
-                        </p>
-                    </div> -->
-
-                    <!-- <div class="hero-banner">
-                        <img src="images/hero-banner.jpg" alt="background">
-                    </div> -->
-
                     <form action="" class="hero-form">
 
                         <div class="input-wrapper">
@@ -233,64 +229,7 @@
                     <div id="confirmationPopup">
                         <p id="confirmationMessage"> Thank you for registering. Your car has been booked. We wil call you shortly.</p>
                     </div>
-                <!-- </div> -->
-                <!-- <div id="myModal" class="modaloverlay"> -->
-                    <!-- <div class="modal"> -->
-                        <!-- <a href="#close" class="close">&times;</a> -->
-                        <!-- <div> -->
-                            <!-- <h1>Here is some content inside the Modal.</h1> -->
-                            <!-- <h2>Registration Page</h2> -->
-                            <!-- <p>If the modal shrinks below the breakpoint then the modal goes full screen for mobile use.</p> -->
-                            <!-- <form> -->
-                                <!-- <label for="first-name">First Name:</label>
-                                <input type="text" id="first-name" name="first-name" required><br><br>
-            
-                                <label for="middle-name">Middle Name:</label>
-                                <input type="text" id="middle-name" name="middle-name"><br><br>
-            
-                                <label for="last-name">Last Name:</label>
-                                <input type="text" id="last-name" name="last-name" required><br><br>
-            
-                                <label for="phone-number">Phone Number:</label>
-                                <input type="tel" id="phone-number" name="phone-number" required><br><br>
-            
-                                <label for="email">Email Address:</label>
-                                <input type="email" id="email" name="email" required><br><br> -->
-            
-                                <!-- <label for="cnic">CNIC No:</label>
-                                <input type="text" id="cnic" name="cnic" required><br><br>
-                                
-                                <label for="start-date">Rental Start Date:</label>
-                                <input type="date" id="start-date" name="start-date" required><br><br>
-            
-                                <label for="end-date">Rental End Date:</label>
-                                <input type="date" id="end-date" name="end-date" required><br><br> -->
-            
-                                <!-- <label for="address">House Address:</label>
-                                <textarea id="address" name="address" required></textarea><br><br> -->
-                                <!-- <div class="gender-details">
-                                    <input type="radio" name="gender" id="dot-1">
-                                    <input type="radio" name="gender" id="dot-2">
-                                    <input type="radio" name="gender" id="dot-3">
-                                    <span class="gender-title">Gender</span>
-                                    <div class="category">
-                                    <label for="dot-1">
-                                    <span class="dot one"></span>
-                                    <span class="gender">Male</span>
-                                    </label>
-                                    <label for="dot-2">
-                                    <span class="dot two"></span>
-                                    <span class="gender">Female</span>
-                                    </label>
-                                    <label for="dot-3">
-                                    <span class="dot three"></span>
-                                    <span class="gender">Prefer not to say</span>
-                                    </label>
-                                    </div> -->
-                                <!-- <input type="submit" value="Confirm">
-                            </form>
-                        </div>
-                    </div>
+                <!-- </div> 
                 </div> -->
             </section>
             <div id="demarcation"></div>
