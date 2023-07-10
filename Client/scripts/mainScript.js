@@ -179,25 +179,25 @@ signOutLink.addEventListener('click', function(event) {
   logout();
 });
 
-// var container = document.querySelector(".featured-car-list");
-// console.log(container);
-//       container.addEventListener("click", function(event) {
-//         var target = event.target;
-//         if (target.tagName === "LI") {
-//           console.log("target.textContent"); // Output: "Item x" (depending on which li was clicked)
-//         }
-//       });
+var container = document.querySelector(".featured-car-list");
+console.log(container);
+      container.addEventListener("click", function(event) {
+        var target = event.target;
+        if (target.tagName === "LI") {
+          console.log("target.textContent"); // Output: "Item x" (depending on which li was clicked)
+        }
+      });
 
-// // Assuming you have an element with id "myElement" that contains the button in its innerHTML
-// var element = document.getElementById("carid");
-// var htmlContent = element.innerHTML;
+// Assuming you have an element with id "myElement" that contains the button in its innerHTML
+var element = document.getElementById("carid");
+var htmlContent = element.innerHTML;
 
-// // Create a temporary div element and set the innerHTML
-// var tempDiv = document.createElement("div");
-// tempDiv.innerHTML = htmlContent;
+// Create a temporary div element and set the innerHTML
+var tempDiv = document.createElement("div");
+tempDiv.innerHTML = htmlContent;
 
-// // Access the button element from the parsed HTML
-// var button = tempDiv.querySelector(".btn");
+// Access the button element from the parsed HTML
+var button = tempDiv.querySelector(".btn");
 
-// // Now you have access to the button element and can perform operations on it
-// console.log(button); // Output: <button>Button</button>
+// Now you have access to the button element and can perform operations on it
+console.log(button); // Output: <button>Button</button>
