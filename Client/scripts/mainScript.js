@@ -3,6 +3,7 @@ function displayCars(cars) {
   
     cars.forEach(car => {
       const carItemElement = document.createElement('li');
+      carItemElement.id = "carid";
       carItemElement.innerHTML = `
         <div class="featured-car-card">
           <figure class="card-banner">
@@ -40,29 +41,43 @@ function displayCars(cars) {
               <button class="btn fav-btn" aria-label="Add to favourite list">
                 <ion-icon name="heart-outline"></ion-icon>
               </button>
-              <button class="btn modalButton" id="modalButton">Rent now</button>
+              <button class="btn modalButton rentNowButton">Rent now</button>
             </div>
           </div>
         </div>
       `;
   
       carListElement.appendChild(carItemElement);
-    });
-  }
+
+    // const rentButton = carItemElement.querySelectorAll('.modalButton');
+    // rentButton.addEventListener('click', openModal);
+    // });
+
+    // const rentButtons = document.querySelectorAll('.modalButton');
+    // rentButtons.forEach(button => {
+    //   button.addEventListener('click', openModal);
+  });
+}
+
+// function openModal() {
+//   document.getElementById('modalOverlay').style.display = 'block';
+// }
+
+// function submitForm(event) {
+//   event.preventDefault();
+//   document.getElementById('modalOverlay').style.display = 'none';
+//   document.getElementById('confirmationPopup').style.display = 'block';
+// }
 
 function toggleDropdown() {
   const dropdownMenu = document.getElementById('dropdownMenu');
   dropdownMenu.classList.toggle('active');
 }
 
-window.addEventListener("load", function () {
-    loadCars();
-});
-
-function loadCars() {
+async function loadCars() {
   const url = 'http://zunainazam1865.pythonanywhere.com/getcar/';
 
-  fetch(url)
+await fetch(url)
     .then(response => response.json())
     .then(data => {
       // Process the car data and display it on the webpage
@@ -74,177 +89,115 @@ function loadCars() {
     });
 }
 
-function openModal(carName) {
-  const modalOverlay = document.querySelector('.modaloverlay');
-  const modal = document.querySelector('.modal');
-  const modalTitle = modal.querySelector('.modal-title');
-  
-  // Update the modal title with the car name
-  modalTitle.textContent = carName;
-  
-  // Display the modal
-  modalOverlay.style.display = 'block';
+async function logout() {
+  // const token = localStorage.getItem('token'); // Get the token from localStorage
+  const token = localStorage.getItem('token');
+  // Make an API request to log out the user
+await  fetch('http://zunainazam1865.pythonanywhere.com/logout/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    // Authorization: `Bearer ${token}` // Include the token in the request headers
+    },
+    // mode: 'cors',
+    body: JSON.stringify({ token: token })
+  })
+    .then(response => {
+      if (response.ok) {
+        // Logout successful, delete the token from localStorage
+        localStorage.removeItem('token');
 
+        // Redirect to the homepage
+        window.location.href = 'index.html';
+      } else {
+        // Handle logout failure
+        console.error('Logout failed');
+      }
+    })
+    .catch(error => {
+      // Handle any error that occurred during the request
+      console.error('Error:', error);
+    });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Get the necessary elements
-  const modalButton = document.getElementById('modalButton');
-  const modalOverlay = document.querySelector('.modaloverlay');
-  const modal = document.querySelector('.modal');
-  const closeButton = document.querySelector('.close');
-  const confirmationPopup = document.getElementById('confirmationPopup');
-  const confirmationMessage = document.getElementById('confirmationMessage');
-  // const form = modal.querySelector('form');
-  
-  // Open the modal when "Rent now" button is clicked
-  modalButton.addEventListener('click', function() {
-    modalOverlay.style.display = 'block';
-  });
+async function saveCarID(carID) {
+  console.log('start');
+  await fetch('http://zunainazam1865.pythonanywhere.com/carregistration/', {
+    method: 'POST',
+    mode:'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    mode:'cors',
+    body: JSON.stringify({ car_id: carID })
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Car ID saved successfully');
 
-  // Close the modal when the close button or outside the modal is clicked
-  closeButton.addEventListener('click', function() {
-    modalOverlay.style.display = 'none';
-  });
-  modalOverlay.addEventListener('click', function(event) {
-    if (event.target === modalOverlay) {
-      modalOverlay.style.display = 'none';
+    } else {
+      console.error('Failed to save car ID');
     }
+  })
+  .catch(error => {
+    console.error('Error occurred:', error);
   });
+}
 
-  // Submit the form and show confirmation message
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+console.log('1');
 
-  // Reset the form after submission
-  form.reset();
+window.addEventListener("load",async function () {
+  await loadCars();
+});
+console.log('2');
 
-  // Show the confirmation message
-  confirmationMessage.textContent = 'Thank you for registering. Your car has been booked. We will call you shortly.';
-  confirmationPopup.style.display = 'block';
+// const rentNowButton = document.querySelectorAll(".rentNowButton");
+// console.log(rentNowButton);
+// rentNowButton.addEventListener("click", function() {
+//   var carID = ""; // Replace with the actual car ID
+  
+//   saveCarID(carID);
+// });
 
-  // Close the modal after submission
-  modalOverlay.style.display = 'none';
-
-  // Close the confirmation popup after a certain duration
-  setTimeout(function() {
-    confirmationPopup.style.display = 'none';
-    }, 5000);
+const rentNowButtons = document.querySelectorAll(".rentNowButton");
+rentNowButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    var carID = ""; // Replace with the actual car ID
+    console.log("aese he kuch");
+    saveCarID(carID);
   });
 });
 
+// Get a reference to the "Sign Out" link element
+const signOutLink = document.getElementById('signout');
 
-// JavaScript code
+// Add an event listener to the link
+signOutLink.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default link behavior
 
-// const modalButton = document.querySelector('.modalButton');
-// const modalOverlay = document.querySelector('.modaloverlay');
-// const modal = document.querySelector('.modal');
-// const closeButton = document.querySelector('.close');
-// const confirmationPopup = document.getElementById('confirmationPopup');
-// const confirmationMessage = document.getElementById('confirmationMessage');
+  // Call the logout function
+  logout();
+});
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   // Your JavaScript code here
-//   const modalButton = document.querySelector('.modalButton');
-//   const modalOverlay = document.querySelector('.modaloverlay');
-//   const modal = document.querySelector('.modal');
-//   const closeButton = document.querySelector('.close');
-//   const confirmationPopup = document.getElementById('confirmationPopup');
-//   // const confirmationMessage = document.getElementById('confirmationMessage');
+// var container = document.querySelector(".featured-car-list");
+// console.log(container);
+//       container.addEventListener("click", function(event) {
+//         var target = event.target;
+//         if (target.tagName === "LI") {
+//           console.log("target.textContent"); // Output: "Item x" (depending on which li was clicked)
+//         }
+//       });
 
-//     // Open the modal when "Rent now" button is clicked
-//     modalButton.addEventListener('click', function() {
-//     modalOverlay.style.display = 'block';
-//   });
-//   function openModal() {
-//     const modalOverlay = document.querySelector('.modaloverlay');
-//     modalOverlay.style.display = 'block';
-//   }
-//     // Close the modal when close button or outside the modal is clicked
-//     closeButton.addEventListener('click', function() {
-//     modalOverlay.style.display = 'none';
-//   });
+// // Assuming you have an element with id "myElement" that contains the button in its innerHTML
+// var element = document.getElementById("carid");
+// var htmlContent = element.innerHTML;
 
-//     // Submit the form and show confirmation message
-//     modal.querySelector('form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     confirmationPopup.style.display = 'block';
-    
-//     // Here, you can perform additional actions like sending form data to the server
-    
-//     // Reset the form after submission
-//     this.reset();
-    
-//     // Close the modal after submission
-//     modalOverlay.style.display = 'none';
+// // Create a temporary div element and set the innerHTML
+// var tempDiv = document.createElement("div");
+// tempDiv.innerHTML = htmlContent;
 
-//     // Close the confirmation popup after a certain duration
-//     setTimeout(function() {
-//       confirmationPopup.style.display = 'none';
-//     }, 5000);
-//   });
-// });
+// // Access the button element from the parsed HTML
+// var button = tempDiv.querySelector(".btn");
 
-
-// // Close the confirmation popup after a certain duration
-// setTimeout(function() {
-//   confirmationPopup.style.display = 'none';
-// }, 5000);
-
-// });
-
-// // Open the modal when "Rent now" button is clicked
-//   modalButton.addEventListener('click', function() {
-//   modalOverlay.style.display = 'block';
-// });
-// // Close the modal when close button or outside the modal is clicked
-// closeButton.addEventListener('click', function() {
-//   modalOverlay.style.display = 'none';
-// });
-
-// // Submit the form and show confirmation message
-//   modal.querySelector('form').addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   confirmationPopup.style.display = 'block';
-  
-//   // Here, you can perform additional actions like sending form data to the server
-  
-//   // Reset the form after submission
-//   this.reset();
-  
-//   // Close the modal after submission
-//   modalOverlay.style.display = 'none';
-// });
-
-// // Close the confirmation popup after a certain duration
-// setTimeout(function() {
-//   confirmationPopup.style.display = 'none';
-// }, 5000);
-
-// new code
-// const modalButton = document.querySelector(".modalButton");
-// const modalOverlay = document.querySelector(".modaloverlay");
-// const confirmationPopup = document.getElementById('confirmationPopup');
-// const confirmationMessage = document.getElementById('confirmationMessage');
-// const closeButton = document.querySelector(".close");
-
-//     modalButton.addEventListener("click", function() {
-//         modalOverlay.style.display = "block";
-//     });
-
-//     closeButton.addEventListener("click", function() {
-//         modalOverlay.style.display = "none";
-//     });
-//     confirmationPopup.addEventListener("click", function() {
-//         confirmationPopup.style.display = 'block';
-//     });
-//     confirmationMessage.addEventListener("click", function() {
-//         confirmationMessage.style.display = 'block';
-//     });
-// // Clear the form and hide the popup
-// modalOverlay.reset();
-// modalOverlay.style.display = 'none';
-
-// // confirmationPopup.style.display = 'block';
-// confirmationMessage.textContent = 'Thank you for registering. Your car has been booked. We wil call you shortly.';
-// confirmationPopup.style.display = 'block';
+// // Now you have access to the button element and can perform operations on it
+// console.log(button); // Output: <button>Button</button>
