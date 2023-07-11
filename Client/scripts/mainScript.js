@@ -1,7 +1,55 @@
+let carid;
+async function onRent(id){
+  carid=id;
+  await  saveCarID(id);
+  openModal();
+  };
+ 
+  async function onConfirm(){
+    console.log('Hello confirm registration');
+    const cnic=document.getElementById("cnic").value;
+    const start_date=document.getElementById("start-date").value;
+    const end_date=document.getElementById("end-date").value;
+    console.log(start_date)
+
+    const url = 'http://zunainazam1865.pythonanywhere.com/carverification/';
+    const data = {
+      car_id: carid,
+      cnic_no:cnic,
+      rental_start_date:start_date,
+      rental_end_date:end_date
+    };
+  console.log(data)
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log(responseData);
+    if(responseData.message === 'Car registration updated successfully'){
+      console.log("Registration updated successfully");
+          
+    } else {
+        console.log("Registration Unsuccessful. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle any errors that occurred during the request
+    });
+  }
+
 function displayCars(cars) {
+  console.log(cars)
     const carListElement = document.querySelector('.featured-car-list');
-  
+    
     cars.forEach(car => {
+      
       const carItemElement = document.createElement('li');
       carItemElement.id = "carid";
       carItemElement.innerHTML = `
@@ -41,38 +89,40 @@ function displayCars(cars) {
               <button class="btn fav-btn" aria-label="Add to favourite list">
                 <ion-icon name="heart-outline"></ion-icon>
               </button>
-              <button class="btn modalButton rentNowButton">Rent now</button>
+              <button class="btn modalButton rentNowButton" onclick="onRent(${car.id})">Rent now</button>
+
             </div>
           </div>
         </div>
       `;
   
       carListElement.appendChild(carItemElement);
-
-    // const rentButton = carItemElement.querySelectorAll('.modalButton');
-    // rentButton.addEventListener('click', openModal);
-    // });
-
-    // const rentButtons = document.querySelectorAll('.modalButton');
-    // rentButtons.forEach(button => {
-    //   button.addEventListener('click', openModal);
   });
 }
 
-// function openModal() {
-//   document.getElementById('modalOverlay').style.display = 'block';
-// }
+function openModal() {
+  console.log('open modal')
+  document.querySelector('.modalOverlay').style.display = 'block';
+}
 
-// function submitForm(event) {
-//   event.preventDefault();
-//   document.getElementById('modalOverlay').style.display = 'none';
-//   document.getElementById('confirmationPopup').style.display = 'block';
-// }
+function submitForm(event) {
+  event.preventDefault();
+  document.querySelector('.modalOverlay').style.display = 'none';
+  document.getElementById('confirmationPopup').style.display = 'block';
+
+  setTimeout(function() {
+    document.getElementById('confirmationPopup').style.display = 'none';
+  }, 3000);
+}
+
+const confirmBtn = document.getElementById('confirm-btn');
+confirmBtn.addEventListener('click',submitForm);
 
 function toggleDropdown() {
   const dropdownMenu = document.getElementById('dropdownMenu');
   dropdownMenu.classList.toggle('active');
 }
+
 
 async function loadCars() {
   const url = 'http://zunainazam1865.pythonanywhere.com/getcar/';
@@ -97,7 +147,6 @@ await  fetch('http://zunainazam1865.pythonanywhere.com/logout/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-    // Authorization: `Bearer ${token}` // Include the token in the request headers
     },
     // mode: 'cors',
     body: JSON.stringify({ token: token })
@@ -121,6 +170,7 @@ await  fetch('http://zunainazam1865.pythonanywhere.com/logout/', {
 }
 
 async function saveCarID(carID) {
+  const token= localStorage.getItem('token');
   console.log('start');
   await fetch('http://zunainazam1865.pythonanywhere.com/carregistration/', {
     method: 'POST',
@@ -129,7 +179,8 @@ async function saveCarID(carID) {
       'Content-Type': 'application/json'
     },
     mode:'cors',
-    body: JSON.stringify({ car_id: carID })
+    body: JSON.stringify({ car_id: carID, token})
+
   })
   .then(response => {
     if (response.ok) {
@@ -151,23 +202,6 @@ window.addEventListener("load",async function () {
 });
 console.log('2');
 
-// const rentNowButton = document.querySelectorAll(".rentNowButton");
-// console.log(rentNowButton);
-// rentNowButton.addEventListener("click", function() {
-//   var carID = ""; // Replace with the actual car ID
-  
-//   saveCarID(carID);
-// });
-
-const rentNowButtons = document.querySelectorAll(".rentNowButton");
-rentNowButtons.forEach(button => {
-  button.addEventListener("click", function() {
-    var carID = ""; // Replace with the actual car ID
-    console.log("aese he kuch");
-    saveCarID(carID);
-  });
-});
-
 // Get a reference to the "Sign Out" link element
 const signOutLink = document.getElementById('signout');
 
@@ -178,26 +212,3 @@ signOutLink.addEventListener('click', function(event) {
   // Call the logout function
   logout();
 });
-
-var container = document.querySelector(".featured-car-list");
-console.log(container);
-      container.addEventListener("click", function(event) {
-        var target = event.target;
-        if (target.tagName === "LI") {
-          console.log("target.textContent"); // Output: "Item x" (depending on which li was clicked)
-        }
-      });
-
-// Assuming you have an element with id "myElement" that contains the button in its innerHTML
-var element = document.getElementById("carid");
-var htmlContent = element.innerHTML;
-
-// Create a temporary div element and set the innerHTML
-var tempDiv = document.createElement("div");
-tempDiv.innerHTML = htmlContent;
-
-// Access the button element from the parsed HTML
-var button = tempDiv.querySelector(".btn");
-
-// Now you have access to the button element and can perform operations on it
-console.log(button); // Output: <button>Button</button>
