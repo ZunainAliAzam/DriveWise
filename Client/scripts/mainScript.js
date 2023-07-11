@@ -1,33 +1,57 @@
-function toggleDropdown() {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    dropdownMenu.classList.toggle('active');
-  }
-  
+let carid;
+async function onRent(id){
+  carid=id;
+  await  saveCarID(id);
+  openModal();
+  };
+ 
+  async function onConfirm(){
+    console.log('Hello confirm registration');
+    const cnic=document.getElementById("cnic").value;
+    const start_date=document.getElementById("start-date").value;
+    const end_date=document.getElementById("end-date").value;
+    console.log(start_date)
 
-window.addEventListener("load", function () {
-    loadCars();
-});
-
-function loadCars() {
-  const url = 'http://zunainazam1865.pythonanywhere.com/getcar/';
-
-  fetch(url)
+    const url = 'http://zunainazam1865.pythonanywhere.com/carverification/';
+    const data = {
+      car_id: carid,
+      cnic_no:cnic,
+      rental_start_date:start_date,
+      rental_end_date:end_date
+    };
+  console.log(data)
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
     .then(response => response.json())
-    .then(data => {
-      // Process the car data and display it on the webpage
-      displayCars(data);
+    .then(responseData => {
+      console.log(responseData);
+    if(responseData.message === 'Car registration updated successfully'){
+      console.log("Registration updated successfully");
+          
+    } else {
+        console.log("Registration Unsuccessful. Please try again.");
+      }
     })
     .catch(error => {
       console.error('Error:', error);
       // Handle any errors that occurred during the request
     });
-}
+  }
 
 function displayCars(cars) {
+  console.log(cars)
     const carListElement = document.querySelector('.featured-car-list');
-  
+    
     cars.forEach(car => {
+      
       const carItemElement = document.createElement('li');
+      carItemElement.id = "carid";
       carItemElement.innerHTML = `
         <div class="featured-car-card">
           <figure class="card-banner">
@@ -65,41 +89,126 @@ function displayCars(cars) {
               <button class="btn fav-btn" aria-label="Add to favourite list">
                 <ion-icon name="heart-outline"></ion-icon>
               </button>
-              <button class="btn">Rent now</button>
+              <button class="btn modalButton rentNowButton" onclick="onRent(${car.id})">Rent now</button>
+
             </div>
           </div>
         </div>
       `;
   
       carListElement.appendChild(carItemElement);
-    });
-  }
-  
+  });
+}
 
-// new code
-const modalButton = document.querySelector(".modalButton");
-const modalOverlay = document.querySelector(".modaloverlay");
-const confirmationPopup = document.getElementById('confirmationPopup');
-const confirmationMessage = document.getElementById('confirmationMessage');
-const closeButton = document.querySelector(".close");
+function openModal() {
+  console.log('open modal')
+  document.querySelector('.modalOverlay').style.display = 'block';
+}
 
-    modalButton.addEventListener("click", function() {
-        modalOverlay.style.display = "block";
-    });
+function submitForm(event) {
+  event.preventDefault();
+  document.querySelector('.modalOverlay').style.display = 'none';
+  document.getElementById('confirmationPopup').style.display = 'block';
 
-    closeButton.addEventListener("click", function() {
-        modalOverlay.style.display = "none";
-    });
-    confirmationPopup.addEventListener("click", function() {
-        confirmationPopup.style.display = 'block';
-    });
-    confirmationMessage.addEventListener("click", function() {
-        confirmationMessage.style.display = 'block';
-    });
-// Clear the form and hide the popup
-modalOverlay.reset();
-modalOverlay.style.display = 'none';
+  setTimeout(function() {
+    document.getElementById('confirmationPopup').style.display = 'none';
+  }, 3000);
+}
 
-// confirmationPopup.style.display = 'block';
-confirmationMessage.textContent = 'Thank you for registering. Your car has been booked. We wil call you shortly.';
-confirmationPopup.style.display = 'block';
+const confirmBtn = document.getElementById('confirm-btn');
+confirmBtn.addEventListener('click',submitForm);
+
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  dropdownMenu.classList.toggle('active');
+}
+
+
+async function loadCars() {
+  const url = 'http://zunainazam1865.pythonanywhere.com/getcar/';
+
+await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Process the car data and display it on the webpage
+      displayCars(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle any errors that occurred during the request
+    });
+}
+
+async function logout() {
+  // const token = localStorage.getItem('token'); // Get the token from localStorage
+  const token = localStorage.getItem('token');
+  // Make an API request to log out the user
+await  fetch('http://zunainazam1865.pythonanywhere.com/logout/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    // mode: 'cors',
+    body: JSON.stringify({ token: token })
+  })
+    .then(response => {
+      if (response.ok) {
+        // Logout successful, delete the token from localStorage
+        localStorage.removeItem('token');
+
+        // Redirect to the homepage
+        window.location.href = 'index.html';
+      } else {
+        // Handle logout failure
+        console.error('Logout failed');
+      }
+    })
+    .catch(error => {
+      // Handle any error that occurred during the request
+      console.error('Error:', error);
+    });
+}
+
+async function saveCarID(carID) {
+  const token= localStorage.getItem('token');
+  console.log('start');
+  await fetch('http://zunainazam1865.pythonanywhere.com/carregistration/', {
+    method: 'POST',
+    mode:'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    mode:'cors',
+    body: JSON.stringify({ car_id: carID, token})
+
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Car ID saved successfully');
+
+    } else {
+      console.error('Failed to save car ID');
+    }
+  })
+  .catch(error => {
+    console.error('Error occurred:', error);
+  });
+}
+
+console.log('1');
+
+window.addEventListener("load",async function () {
+  await loadCars();
+});
+console.log('2');
+
+// Get a reference to the "Sign Out" link element
+const signOutLink = document.getElementById('signout');
+
+// Add an event listener to the link
+signOutLink.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default link behavior
+
+  // Call the logout function
+  logout();
+});
