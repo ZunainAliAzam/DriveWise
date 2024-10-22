@@ -71,7 +71,7 @@ We welcome contributions! Here's how you can contribute:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for more details.
 
 ## Contact
 
